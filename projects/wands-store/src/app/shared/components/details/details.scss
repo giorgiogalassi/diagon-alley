@@ -1,0 +1,146 @@
+@use "sass:color";
+
+:host {
+  display: block;
+  padding: 20px;
+  background-color: var(--parchment-beige, #f5efcf);
+}
+
+.item-detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.item-detail-card {
+  background-color: var(--parchment-beige-darker);
+  border: 1px solid var(--antique-gold, #b8860b);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.item-detail-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed var(--antique-gold, #b8860b);
+
+  .item-title {
+    font-size: 2.5em;
+    color: var(--heading-color, #1a237e);
+    margin: 10px 0 5px 0;
+  }
+
+  .item-author {
+    font-size: 1.3em;
+    color: var(--text-color, #3a3a3a);
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: var(--antique-gold, #b8860b);
+  text-decoration: none;
+  font-weight: bold;
+
+  &::before {
+    content: "←";
+    margin-right: 3px;
+  }
+
+  &:hover {
+    color: var(--midnight-blue, #1a237e);
+    text-decoration: underline;
+  }
+}
+
+.item-detail-content {
+  display: flex;
+  gap: 30px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.item-cover-large {
+  flex: 0 0 300px;
+  max-width: 300px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--antique-gold, #b8860b);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.item-info {
+  flex: 1;
+
+  h3 {
+    color: var(--heading-color, #1a237e);
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .item-category,
+  .item-rating,
+  .item-price {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    strong {
+      color: var(--midnight-blue, #1a237e);
+    }
+  }
+
+  .item-description {
+    font-size: 1em;
+    white-space: pre-wrap;
+  }
+}
+
+.add-to-cart-btn-detail {
+  background-color: var(--midnight-blue, #1a237e);
+  color: var(--parchment-beige, #f5efcf);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+
+  &::before {
+    content: "✨ ";
+    margin-right: 5px;
+  }
+
+  &:hover {
+    background-color: var(--midnight-blue-darker, #141b60);
+  }
+}
+
+.loading-message,
+.back-link-center {
+  text-align: center;
+  font-size: 1.2em;
+  padding: 30px;
+  color: var(--midnight-blue, #1a237e);
+}
+
+.back-link-center {
+  display: block;
+}
