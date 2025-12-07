@@ -1,0 +1,50 @@
+{
+  "name": "diagon-alley",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "start:all": "concurrently \"ng serve diagon-alley\" \"ng serve books-store --open=false\" \"ng serve broomsticks-store --open=false\" \"ng serve wands-store --open=false\"",
+    "build": "ng build",
+    "build:hp-library": "ng build --project=hp-library",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^19.2.14",
+    "@angular/common": "^19.2.14",
+    "@angular/compiler": "^19.2.14",
+    "@angular/core": "^19.2.14",
+    "@angular/forms": "^19.2.14",
+    "@angular/platform-browser": "^19.2.14",
+    "@angular/platform-browser-dynamic": "^19.2.14",
+    "@angular/router": "^19.2.14",
+    "es-module-shims": "^1.5.12",
+    "hp-library": "file:dist/hp-library",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.1"
+  },
+  "devDependencies": {
+    "@angular-architects/native-federation": "^19.0.23",
+    "@angular-devkit/build-angular": "^19.2.14",
+    "@angular/cli": "~19.2.14",
+    "@angular/compiler-cli": "^19.2.14",
+    "@types/jasmine": "~4.3.0",
+    "@types/jest": "^29.5.14",
+    "concurrently": "^9.1.2",
+    "jasmine-core": "~4.6.0",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.5.5",
+    "ng-packagr": "^19.2.2",
+    "prettier": "^3.5.3",
+    "typescript": "~5.8.3"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setup-jest.ts"
+    ]
+  }
+}
