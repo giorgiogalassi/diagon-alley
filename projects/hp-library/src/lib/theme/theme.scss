@@ -1,0 +1,47 @@
+@use "./variables";
+
+// --------------------------------------------------
+// Helpers
+// --------------------------------------------------
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// --------------------------------------------------
+// Base
+// --------------------------------------------------
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+// --------------------------------------------------
+// Buttons
+// --------------------------------------------------
+@mixin button($bg, $fg) {
+  background: $bg;
+  color: $fg;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.button-cta {
+  @include button(#{var(--color-cta)}, #fff);
+}
