@@ -1,0 +1,81 @@
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+
+  & img {
+    margin: 0 16px;
+  }
+
+  & #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+
+  & #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+}
+
+.spacer {
+  flex: 1;
+}
+
+section {
+  max-width: 640px;
+
+  margin: 0 auto;
+  padding: 4rem 1rem;
+
+  text-align: center;
+
+  & nav {
+    width: 20%;
+  }
+
+  & aside {
+    position: relative;
+
+    width: 80%;
+  }
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  letter-spacing: .5px;
+}
+
+.shop-links {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.shop-link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s ease;
+}
+
+.shop-link:hover {
+  transform: translateY(-4px);
+}
+
+.shop-link h2 {
+  margin: .75rem 0 0;
+  font-size: 1.25rem;
+}
+
+.shop-link img {
+  width: 48px;
+  height: auto;
+}
