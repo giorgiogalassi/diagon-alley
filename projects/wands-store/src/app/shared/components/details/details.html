@@ -1,0 +1,42 @@
+<div class="item-detail-container">
+  @if (item(); as currentItem) {
+  <div class="item-detail-card">
+    <div class="item-detail-header">
+      <a routerLink=".." class="back-link">Back to List</a>
+      <h1 class="item-title">{{ currentItem.name }}</h1>
+      <h2 class="item-author">By: {{ currentItem.author }}</h2>
+    </div>
+
+    <div class="item-detail-content">
+      <div class="item-cover-large">
+        <img [src]="currentItem.coverImage" [alt]="currentItem.name" />
+      </div>
+      <div class="item-info">
+        <p class="item-category"><strong>Category:</strong> {{ currentItem.category }}</p>
+        <p class="item-rating"><strong>Rating:</strong> {{ currentItem.rating }} / 5 Stars</p>
+        <p class="item-price"><strong>Price:</strong> £{{ currentItem.price.toFixed(2) }}</p>
+
+        <h3>Description:</h3>
+        <p class="item-description">{{ currentItem.description }}</p>
+
+        <ng-content>
+          <button type="button" class="add-to-cart-btn-detail" (click)="addItemToCart()">
+            Add to Cart
+          </button>
+        </ng-content>
+      </div>
+    </div>
+  </div>
+  } @else {
+  <p class="loading-message">Loading book details or book not found...</p>
+  <a routerLink=".." class="back-link-center">Go Back to List</a>
+  }
+</div>
+
+@if (modalStatus()) {
+  <app-unauthenticated-modal
+    [imageUrl]="'assets/images/wands/olivander.png'"
+    [message]="'The wand chooses the wizard, Mr. Dev.'"
+    (closeModal)="handleCloseModal()">
+  </app-unauthenticated-modal>
+}

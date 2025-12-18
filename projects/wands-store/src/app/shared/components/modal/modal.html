@@ -1,0 +1,9 @@
+<div class="modal-overlay" (click)="onClose()" role="dialog" aria-modal="true" [attr.aria-label]="message()">
+  <div class="modal-content" (click)="$event.stopPropagation()" role="document">
+    <button class="close-button" (click)="onClose()" aria-label="Close modal">&times;</button>
+    <img [src]="imageUrl()" alt="Notification Image" class="modal-image" onError="this.style.display='none'"/>
+    <p class="modal-message">{{ message() }}</p>
+    <!-- You could add action buttons here if needed, e.g., "Login", "Register" -->
+    <!-- For now, just a close mechanism -->
+  </div>
+</div>

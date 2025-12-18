@@ -1,0 +1,69 @@
+:host {
+  display: contents;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--parchment-beige, #f5efcf);
+  color: var(--text-color, #3a3a3a);
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid var(--antique-gold, #b8860b);
+  text-align: center;
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--midnight-blue, #1a237e);
+  cursor: pointer;
+  line-height: 1;
+  padding: 5px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--antique-gold-darker, #a7770a);
+  }
+  &:focus {
+    outline: 2px solid var(--midnight-blue, #1a237e);
+    outline-offset: 2px;
+  }
+}
+
+.modal-image {
+  max-width: 350px;
+  height: auto;
+  margin-bottom: 20px;
+  border: 2px solid var(--antique-gold-darker, #a7770a);
+  border-radius: 8px;
+  padding: 5px;
+  background-color: var(--parchment-beige-lighter, #faf7e5);
+}
+
+.modal-message {
+  font-size: 1.15em;
+  color: var(--heading-color, #1a237e);
+  margin: 0;
+  line-height: 1.5;
+}

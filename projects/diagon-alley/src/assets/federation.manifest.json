@@ -1,0 +1,5 @@
+{
+  "books-store": "http://localhost:4201/remoteEntry.json",
+  "broomsticks-store": "http://localhost:4202/remoteEntry.json",
+  "wands-store": "http://localhost:4203/remoteEntry.json"
+}

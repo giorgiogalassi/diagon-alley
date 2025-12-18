@@ -1,0 +1,513 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"books-store": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/books-store",
+			"sourceRoot": "projects/books-store/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "books-store:esbuild:production",
+						"stylePreprocessorOptions": {
+							"includePaths": [
+								"projects/hp-library/src/lib/theme"
+							]
+						},
+						"polyfills": []
+					}
+				},
+				"serve": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "books-store:serve-original:development",
+						"rebuildDelay": 0,
+						"dev": true
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"buildTarget": "books-store:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/books-store/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/books-store/src/favicon.ico",
+							"projects/books-store/src/assets"
+						],
+						"styles": [
+							"projects/books-store/src/styles.scss"
+						],
+						"scripts": []
+					}
+				},
+				"esbuild": {
+					"builder": "@angular-devkit/build-angular:application",
+					"options": {
+						"outputPath": "dist/books-store",
+						"index": "projects/books-store/src/index.html",
+						"polyfills": [
+							"zone.js",
+							"es-module-shims"
+						],
+						"tsConfig": "projects/books-store/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/books-store/src/favicon.ico",
+							"projects/books-store/src/assets"
+						],
+						"styles": [
+							"projects/books-store/src/styles.scss"
+						],
+						"scripts": [],
+						"browser": "projects/books-store/src/main.ts"
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-original": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4201
+          },
+					"configurations": {
+						"production": {
+							"buildTarget": "books-store:esbuild:production"
+						},
+						"development": {
+							"buildTarget": "books-store:esbuild:development"
+						}
+					},
+					"defaultConfiguration": "development"
+				}
+			}
+		},
+		"broomsticks-store": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/broomsticks-store",
+			"sourceRoot": "projects/broomsticks-store/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "broomsticks-store:esbuild:production",
+						"stylePreprocessorOptions": {
+							"includePaths": [
+								"projects/hp-library/src/lib/theme"
+							]
+						},
+						"polyfills": []
+					}
+				},
+				"serve": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "broomsticks-store:serve-original:development",
+						"rebuildDelay": 0,
+						"dev": true
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"buildTarget": "broomsticks-store:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/broomsticks-store/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/broomsticks-store/src/favicon.ico",
+							"projects/broomsticks-store/src/assets"
+						],
+						"styles": [
+							"projects/broomsticks-store/src/styles.scss"
+						],
+						"scripts": []
+					}
+				},
+				"esbuild": {
+					"builder": "@angular-devkit/build-angular:application",
+					"options": {
+						"outputPath": "dist/broomsticks-store",
+						"index": "projects/broomsticks-store/src/index.html",
+						"polyfills": [
+							"zone.js",
+							"es-module-shims"
+						],
+						"tsConfig": "projects/broomsticks-store/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/broomsticks-store/src/favicon.ico",
+							"projects/broomsticks-store/src/assets"
+						],
+						"styles": [
+							"projects/broomsticks-store/src/styles.scss"
+						],
+						"scripts": [],
+						"browser": "projects/broomsticks-store/src/main.ts"
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-original": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4202
+          },
+					"configurations": {
+						"production": {
+							"buildTarget": "broomsticks-store:esbuild:production"
+						},
+						"development": {
+							"buildTarget": "broomsticks-store:esbuild:development"
+						}
+					},
+					"defaultConfiguration": "development"
+				}
+			}
+		},
+		"wands-store": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/wands-store",
+			"sourceRoot": "projects/wands-store/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "wands-store:esbuild:production",
+						"stylePreprocessorOptions": {
+							"includePaths": [
+								"projects/hp-library/src/lib/theme"
+							]
+						},
+						"polyfills": []
+					}
+				},
+				"serve": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "wands-store:serve-original:development",
+						"rebuildDelay": 0,
+						"dev": true
+          }
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"buildTarget": "wands-store:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/wands-store/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/wands-store/src/favicon.ico",
+							"projects/wands-store/src/assets"
+						],
+						"styles": [
+							"projects/wands-store/src/styles.scss"
+						],
+						"scripts": []
+					}
+				},
+				"esbuild": {
+					"builder": "@angular-devkit/build-angular:application",
+					"options": {
+						"outputPath": "dist/wands-store",
+						"index": "projects/wands-store/src/index.html",
+						"polyfills": [
+							"zone.js",
+							"es-module-shims"
+						],
+						"tsConfig": "projects/wands-store/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/wands-store/src/favicon.ico",
+							"projects/wands-store/src/assets"
+						],
+						"styles": [
+							"projects/wands-store/src/styles.scss"
+						],
+						"scripts": [],
+						"browser": "projects/wands-store/src/main.ts"
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-original": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4203
+          },
+          "configurations": {
+						"production": {
+							"buildTarget": "wands-store:esbuild:production"
+						},
+						"development": {
+							"buildTarget": "wands-store:esbuild:development"
+						}
+					},
+					"defaultConfiguration": "development"
+				}
+			}
+		},
+		"diagon-alley": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/diagon-alley",
+			"sourceRoot": "projects/diagon-alley/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "diagon-alley:esbuild:production",
+						"stylePreprocessorOptions": {
+							"includePaths": [
+								"projects/hp-library/src/lib/theme"
+							]
+						},
+						"polyfills": []
+					}
+				},
+				"serve": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "diagon-alley:serve-original:development",
+						"rebuildDelay": 0,
+						"dev": true
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"buildTarget": "diagon-alley:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						],
+						"tsConfig": "projects/diagon-alley/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/diagon-alley/src/favicon.ico",
+							"projects/diagon-alley/src/assets"
+						],
+						"styles": [
+							"projects/diagon-alley/src/styles.scss"
+						],
+						"scripts": []
+					}
+				},
+				"esbuild": {
+					"builder": "@angular-devkit/build-angular:application",
+					"options": {
+						"outputPath": "dist/diagon-alley",
+						"index": "projects/diagon-alley/src/index.html",
+						"polyfills": [
+							"zone.js",
+							"es-module-shims"
+						],
+						"tsConfig": "projects/diagon-alley/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/diagon-alley/src/favicon.ico",
+							"projects/diagon-alley/src/assets"
+						],
+						"styles": [
+							"projects/diagon-alley/src/styles.scss"
+						],
+						"scripts": [],
+						"browser": "projects/diagon-alley/src/main.ts"
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kb",
+									"maximumError": "1mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "2kb",
+									"maximumError": "4kb"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-original": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "diagon-alley:esbuild:production"
+						},
+						"development": {
+							"buildTarget": "diagon-alley:esbuild:development"
+						}
+					},
+					"defaultConfiguration": "development"
+				}
+			}
+		},
+		"hp-library": {
+			"projectType": "library",
+			"root": "projects/hp-library",
+			"sourceRoot": "projects/hp-library/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/hp-library/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/hp-library/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/hp-library/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/hp-library/tsconfig.spec.json",
+						"polyfills": [
+							"zone.js",
+							"zone.js/testing"
+						]
+					}
+				}
+			}
+		}
+	}
+}

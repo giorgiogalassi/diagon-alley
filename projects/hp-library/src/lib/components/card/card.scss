@@ -1,0 +1,120 @@
+@use "sass:color"; 
+
+:host {
+  display: block;
+}
+
+.card {
+  background-color: var(--parchment-beige, #F5EFCF);
+  border: 1px solid var(--antique-gold, #B8860B);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.card-cover {
+  width: 100%;
+  position: relative;
+  background-color: var(--parchment-beige-darker); 
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-bottom: 1px solid var(--antique-gold, #B8860B);
+  }
+}
+
+.card-details {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+
+.card-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: var(--heading-color, #1A237E);
+  margin: 0 0 5px 0;
+  line-height: 1.2;
+}
+
+.card-author {
+  font-size: 0.9em;
+  font-style: italic;
+  color: var(--text-color-lighter, #6B6B6B); 
+}
+
+.card-category {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--antique-gold, #B8860B);
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+}
+
+.card-description {
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin: 0 0 15px 0;
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; 
+  padding-top: 10px;
+  border-top: 1px dashed var(--antique-gold, #B8860B);
+}
+
+.card-price {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--midnight-blue, #1A237E);
+}
+
+.add-to-cart-btn {
+  background-color: var(--midnight-blue, #1A237E);
+  color: var(--parchment-beige, #F5EFCF);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Georgia', 'Times New Roman', serif; 
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &::before {
+    content: "✨ "; 
+    margin-right: 5px;
+  }
+
+  &:hover {
+    background-color: var(--midnight-blue-darker, #141B60); 
+  }
+}
+
+.card-rating {
+  font-size: 0.85em;
+  margin-top: 10px;
+  color: var(--antique-gold);
+  text-align: right;
+}
+
+.no-card-data {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-color);
+}

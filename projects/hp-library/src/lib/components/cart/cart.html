@@ -1,0 +1,75 @@
+<div class="cart-page-container">
+  <h1 class="page-title">Your Magical Shopping Cart</h1>
+
+  @if (cartItems().length > 0) {
+  <div class="cart-contents">
+    <div class="cart-items-list">
+      @for (item of cartItems(); track item.itemId) {
+      <div class="cart-item">
+        <div class="item-image">
+          <img [src]="item.coverImage" [alt]="item.name" />
+        </div>
+        <div class="item-details">
+          <h3 class="item-title">{{ item.name }}</h3>
+          <p class="item-author">by {{ item.author }}</p>
+          <p class="item-price">Unit Price: {{ item.price | currency:'GBP':'symbol':'1.2-2' }}</p>
+          <div class="item-quantity">
+            <label [for]="'quantity-' + item.itemId">Quantity:</label>
+            <button
+              (click)="decrement(item)"
+              [attr.aria-label]="'Decrease quantity of ' + item.name"
+              class="quantity-btn"
+            >
+              -
+            </button>
+            <input
+              type="text"
+              [id]="'quantity-' + item.itemId"
+              [value]="item.quantity"
+              readonly
+              class="quantity-display"
+              aria-live="polite"
+            />
+            <button
+              (click)="add(item)"
+              [attr.aria-label]="'Increase quantity of ' + item.name"
+              class="quantity-btn"
+            >
+              +
+            </button>
+          </div>
+          <p class="item-subtotal">
+            Subtotal: {{ (item.price * item.quantity) | currency:'GBP':'symbol':'1.2-2' }}
+          </p>
+        </div>
+        <div class="item-actions">
+          <button
+            (click)="remove(item)"
+            class="remove-item-btn"
+            [attr.aria-label]="'Remove ' + item.name + ' from cart'"
+          >
+            Remove Item
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+
+    <div class="cart-summary">
+      <h2>Cart Summary</h2>
+      <p class="summary-item-count">Total Items: {{ cartItemsCount() }}</p>
+      <p class="summary-total-amount">
+        Grand Total: <strong>{{ cartTotal() | currency:'GBP':'symbol':'1.2-2' }}</strong>
+      </p>
+      <div class="summary-actions">
+        <button (click)="clearCart()" class="clear-cart-btn">Clear Cart</button>
+        <button (click)="checkout()" class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+  } @else {
+  <div class="empty-cart-message">
+    <p>Your cart is as empty as a vault at Gringotts after a goblin strike!</p>
+  </div>
+  }
+</div>

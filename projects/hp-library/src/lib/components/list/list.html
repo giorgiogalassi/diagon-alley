@@ -1,0 +1,34 @@
+<div class="item-list-controls">
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Search by title, author, or category..."
+    [value]="searchTerm()"
+    (input)="onSearch($event)"
+    aria-label="Search items"
+  />
+  <select
+    class="category-select"
+    (change)="onFilterCategory($event)"
+    [value]="selectedCategory()"
+    aria-label="Filter by category"
+  >
+    @for (category of categories(); track category) {
+    <option [value]="category === 'All Categories' ? '' : category">{{ category }}</option>
+    }
+  </select>
+</div>
+
+<div class="item-grid-container">
+  @if (filteredItems().length > 0) {
+  <div class="item-grid">
+    @for (book of filteredItems(); track book.itemId) {
+    <app-card [item]="book" (viewBookDetails)="viewItemDetails($event)" (addToCart)="addItemToCart($event)"/>
+    }
+  </div>
+  } @else {
+  <p class="no-books-message">
+    No magical books match your current search or filter. Try adjusting your terms!
+  </p>
+  }
+</div>

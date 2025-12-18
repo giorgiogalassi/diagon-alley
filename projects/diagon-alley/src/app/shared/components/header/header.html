@@ -1,0 +1,13 @@
+<div class="logo">Diagon Alley</div>
+<nav>
+  <ul>
+    <li><a routerLink="./books-store" routerLinkActive="active-link">Books</a></li>
+    <li><a routerLink="./broomsticks-store" routerLinkActive="active-link">Broomsticks</a></li>
+    <li><a routerLink="./wands-store" routerLinkActive="active-link">Wands</a></li>
+    <li cart>
+      <a routerLink="./cart" routerLinkActive="active-link"
+        ><img src="assets/images/cart/cart-owl.png" alt="Cart with Owl" /> {{ cart.cartCount() }}</a
+      >
+    </li>
+  </ul>
+</nav>

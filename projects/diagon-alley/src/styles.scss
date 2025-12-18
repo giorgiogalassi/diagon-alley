@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Georgia&family=Arial:wght@400;700&display=swap");
+
+:root {
+  --parchment-beige: #f5ebdc;
+  --night-blue: #0a1931;
+  --antique-gold: #b08d57;
+  --text-color: #3a3b3c;
+  --header-footer-accent: #eae0d5;
+  --font-serif: "Georgia", serif;
+  --font-sans-serif: "Arial", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans-serif);
+  background-color: var(--parchment-beige);
+  color: var(--text-color);
+  padding-top: 70px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  color: var(--night-blue);
+}
+
+a {
+  color: var(--antique-gold);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--night-blue);
+}
